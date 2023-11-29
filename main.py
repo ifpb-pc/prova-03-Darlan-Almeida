@@ -1,14 +1,90 @@
 def q1(cidades):
-    return []
+
+    cidade = [i for i in cidades.keys()]
+    idade = [i for i in cidades.values()]
+    resultado = []
+
+    for index , i in enumerate(idade):
+        if(i > 100):
+            resultado.append(cidade[index])
+
+    return(resultado)
 
 def q2(lista1, lista2):
-    return []
+    resultado = 0
+    lista_resultado = []
 
-def q3(valores):
-    return [],[]
 
-def q4(valores):
-    return []
+
+    for i in lista1:
+        if(i > 0):
+            resultado += i
+            lista_resultado.append(i)
+    for i in lista2:
+        if(i > 0):
+            resultado += i
+            lista_resultado.append(i)
+            
+    lista_resultado.sort()
+
+    return resultado,lista_resultado
+
+
+def ler_valores():
+    nums = [ ]
+    num = None
+    while(num != 0):
+        num = int(input("digite um número: "))
+        if(num != 0):
+            nums.append(num)
+        
+    return nums
+
+def q3():
+    valores = ler_valores()
+    pares = [ ]
+    impares = []
+
+    for i in valores:
+        if( i % 2 == 0):
+            pares.append(i)
+            
+        else:
+            impares.append(i)
+            
+            
+    return(pares, impares)
+
+
+
+def ler_alturas():
+    lista_altura = []
+    for i in range(3):
+        altura = float(input("digite a altura: "))
+        lista_altura.append(altura)
+    return lista_altura
+        
+
+def q4():
+    lista_altura = ler_alturas()
+    primeiro = 0 
+    segundo = 0
+    terceiro = 0
+        
+    primeiro = max(lista_altura)
+    lista_altura.remove(primeiro)
+    
+    if(lista_altura[0] > lista_altura[1]):
+        segundo = lista_altura[0]
+        terceiro = lista_altura[1]
+    else:
+         segundo = lista_altura[1]
+         terceiro = lista_altura[0]
+        
+        
+    resultado = [f"{segundo:.2f}" , f"{primeiro:.2f}" , f"{terceiro:.2f}"]
+        
+    return(resultado)
 
 def main():
     # Teste as questões que você desenvolveu manualmente:
@@ -33,6 +109,7 @@ def main():
     resultado = q2(lista1, lista2)
     print("q2:", resultado)
 
+    
 
 
 if __name__ == "__main__":
